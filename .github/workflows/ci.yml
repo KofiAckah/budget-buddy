@@ -1,0 +1,31 @@
+name: BudgetBuddy CI
+
+# Trigger the pipeline on push or pull request to the main branch
+on:
+  push:
+    branches: [ "main", "feat/*" ] # Runs on main and any feature branch
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Check out the code from the repository
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # 2. Set up Node.js environment
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    # 3. Install dependencies (Jest)
+    - name: Install dependencies
+      run: npm install
+
+    # 4. Run the tests
+    - name: Run Tests
+      run: npm test
