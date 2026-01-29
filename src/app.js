@@ -1,7 +1,7 @@
 // src/app.js
 
-// State: We store the expenses here
-const expenses = [];
+// CHANGE 1: Use 'let' so we can update the array when deleting
+let expenses = [];
 
 // DOM Elements
 const addBtn = document.getElementById('add-btn');
@@ -11,11 +11,10 @@ const list = document.getElementById('expense-list');
 const totalDisplay = document.getElementById('total-amount');
 
 addBtn.addEventListener('click', () => {
-    // 1. Get values
     const name = nameInput.value;
     const amount = amountInput.value;
-
-    // 2. Use the Logic Function (from logic.js)
+    
+    // Note: addExpense mutates the array in our current logic
     const newExpense = addExpense(expenses, name, amount);
 
     if (newExpense) {
@@ -28,20 +27,30 @@ addBtn.addEventListener('click', () => {
 });
 
 function renderUI() {
-    // Clear the current list
     list.innerHTML = "";
 
-    // Re-draw the list
     expenses.forEach(expense => {
         const li = document.createElement('li');
+        
+        // CHANGE 2: Create HTML with a Delete Button
         li.innerHTML = `
-            <span>${expense.name}</span>
-            <span>$${expense.amount.toFixed(2)}</span>
+            <span>${expense.name}: $${expense.amount.toFixed(2)}</span>
+            <button class="delete-btn" data-id="${expense.id}" style="background-color: #dc3545; margin-left: 10px;">X</button>
         `;
+        
+        // CHANGE 3: Add Click Listener for Deletion
+        // We find the button we just created inside this 'li'
+        const deleteBtn = li.querySelector('.delete-btn');
+        deleteBtn.addEventListener('click', () => {
+            // Call the logic function
+            expenses = removeExpense(expenses, expense.id);
+            // Re-draw the UI
+            renderUI();
+        });
+
         list.appendChild(li);
     });
 
-    // Calculate Total (using logic.js)
     const total = calculateTotal(expenses);
     totalDisplay.textContent = total.toFixed(2);
 }

@@ -20,13 +20,19 @@ function calculateTotal(expenseList) {
     return total;
 }
 
+// Function 3: Remove an expense by ID
+function removeExpense(expenseList, expenseId) {
+    // Filter out the item with the matching ID
+    return expenseList.filter(item => item.id !== expenseId);
+}
+
 // Universal Export Pattern
 // If we are in Node.js (Testing), export the module.
 if (typeof module !== 'undefined') {
-    module.exports = { addExpense, calculateTotal };
+    module.exports = { addExpense, calculateTotal, removeExpense };
 }
 
 // Export these functions so Jest can test them
-module.exports = { addExpense, calculateTotal };
+module.exports = { addExpense, calculateTotal, removeExpense };
 
 
