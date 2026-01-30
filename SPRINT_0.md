@@ -1,11 +1,17 @@
-# Product Backlog: BudgetBuddy
+# Sprint 0: Project Setup & Planning
 
-## Product Vision
+**Date:** January 2026
+
+**Sprint Goal:** Establish project foundation, define product backlog, and set quality standards.
+
+---
+
+## Product Backlog: BudgetBuddy
+
+### Product Vision
 For students and young professionals who struggle to keep track of their daily spending, 
 the "BudgetBuddy" is a simple web application that allows users to quickly log expenses 
 and view a running total, helping them stay within their financial goals.
-
-## Sprint 1 Backlog
 
 ### Story 1: Log Expense
 **As a** user,
@@ -21,6 +27,8 @@ and view a running total, helping them stay within their financial goals.
 - [ ] **Negative Scenarios:** The system prevents adding an empty name or a negative amount.
 
 **Estimate:** 3 Points
+
+---
 
 ### Story 2: View Expense List
 **As a** user,
@@ -46,7 +54,7 @@ and view a running total, helping them stay within their financial goals.
 - [ ] There is a distinct "Total" display area on the screen.
 - [ ] The total updates automatically whenever a new item is added.
 - [ ] The calculation is mathematically correct.
-- [ ] The total is formatted as currency (e.g., $50.00 or 50.00 GHS).
+ - [ ] The total is formatted as currency (e.g., $50.00)<!-- or  50.00 GHS-->. 
 
 **Estimate:** 2 Points
 
@@ -79,3 +87,27 @@ and view a running total, helping them stay within their financial goals.
 - [ ] The "Total Spending" updates to show the total for *only* the visible items.
 
 **Estimate:** 5 Points
+
+---
+
+## Definition of Done (DoD)
+
+For any User Story to be considered "Done," it must meet the following criteria:
+
+### 1. Code Quality
+- [ ] Code is written clearly and formatted (clean indentation).
+- [ ] No commented-out code or debug "console.log" statements left behind.
+
+### 2. Functionality
+- [ ] All Acceptance Criteria for the story are met.
+- [ ] The feature works as expected in the browser.
+
+### 3. Testing & CI/CD
+- [ ] Unit tests are written for the new logic (where applicable).
+- [ ] All tests pass locally.
+- [ ] The CI Pipeline (GitHub Actions) passes (green checkmark).
+
+### 4. Version Control
+- [ ] Created a dedicated feature branch (no direct commits to main).
+- [ ] Pull Request (PR) created and merged.
+- [ ] Commit messages are descriptive (e.g., "feat: add expense logic" not just "update").

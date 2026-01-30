@@ -43,3 +43,4 @@ Thumbs.db
 # Package lock files (if using yarn)
 # Uncomment if you prefer yarn.lock only
 # package-lock.json
+assignment.*
