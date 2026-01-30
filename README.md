@@ -75,12 +75,9 @@ BudgetBuddy/
 │   └── logic.js                # Core business logic (testable)
 ├── tests/
 │   └── logic.test.js           # Jest unit tests
-├── BACKLOG.md                  # Product backlog with user stories
-├── DOD.md                      # Definition of Done checklist
-├── SPRINT_1_REVIEW.md          # Sprint 1 review document
-├── SPRINT_1_RETRO.md           # Sprint 1 retrospective
-├── SPRINT_2_REVIEW.md          # Sprint 2 review document
-├── SPRINT_2_RETRO.md           # Sprint 2 retrospective
+├── SPRINT_0.md                 # Project setup, backlog & DoD
+├── SPRINT_1.md                 # Sprint 1 review & retrospective
+├── SPRINT_2.md                 # Sprint 2 review & retrospective
 ├── package.json                # Project dependencies and scripts
 └── README.md                   # This file
 ```
@@ -164,7 +161,7 @@ This project follows a **feature branch workflow**:
 #### Story 5: Filter by Category (5 points)
 **As a** user, **I want to** filter my expenses by category (e.g., Food, Transport), **so that** I can analyze where most of my money is going.
 
-See [BACKLOG.md](BACKLOG.md) for detailed acceptance criteria.
+See [SPRINT_0.md](SPRINT_0.md) for detailed acceptance criteria.
 
 ## 🛠️ Technology Stack
 
@@ -210,7 +207,7 @@ For any user story to be considered "Done," it must meet:
    - Pull request created and merged
    - Descriptive commit messages
 
-See [DOD.md](DOD.md) for the complete checklist.
+See [SPRINT_0.md](SPRINT_0.md) for the complete checklist and product backlog.
 
 ## 🤝 Contributing
 
