@@ -1,12 +1,21 @@
 // src/logic.js
 
-// Function 1: Add an expense to the list
-function addExpense(expenseList, name, amount) {
+// Function 1: Add an expense to the list (Updated for Category)
+function addExpense(expenseList, name, amount, category) {
     // Validation: Name must exist, Amount must be positive
     if (!name || amount <= 0) {
         return null; 
     }
-    const newExpense = { id: Date.now(), name, amount: parseFloat(amount) };
+    // Default category to 'Other' if not provided
+    const validCategory = category || 'Other';
+    
+    const newExpense = { 
+        id: Date.now(), 
+        name, 
+        amount: parseFloat(amount), 
+        category: validCategory 
+    };
+    
     expenseList.push(newExpense);
     return newExpense;
 }
@@ -22,17 +31,18 @@ function calculateTotal(expenseList) {
 
 // Function 3: Remove an expense by ID
 function removeExpense(expenseList, expenseId) {
-    // Filter out the item with the matching ID
     return expenseList.filter(item => item.id !== expenseId);
 }
 
-// Universal Export Pattern
-// If we are in Node.js (Testing), export the module.
-if (typeof module !== 'undefined') {
-    module.exports = { addExpense, calculateTotal, removeExpense };
+// Function 4: Filter by Category (New for Story 5)
+function filterExpenses(expenseList, category) {
+    if (category === 'All') {
+        return expenseList;
+    }
+    return expenseList.filter(item => item.category === category);
 }
 
-// Export these functions so Jest can test them
-module.exports = { addExpense, calculateTotal, removeExpense };
-
-
+// Universal Export
+if (typeof module !== 'undefined') {
+    module.exports = { addExpense, calculateTotal, removeExpense, filterExpenses };
+}

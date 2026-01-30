@@ -40,3 +40,24 @@ test('should remove an expense by ID', () => {
     expect(list.length).toBe(1);
     expect(list[0].name).toBe('Lunch');
 });
+
+test('should add an expense with a category', () => {
+    const list = [];
+    // We expect addExpense to now accept a 4th argument: 'Food'
+    addExpense(list, 'Burger', 10, 'Food'); 
+    expect(list[0].category).toBe('Food');
+});
+
+test('should filter expenses by category', () => {
+    const list = [
+        { id: 1, name: 'Burger', amount: 10, category: 'Food' },
+        { id: 2, name: 'Taxi', amount: 20, category: 'Transport' }
+    ];
+    
+    // We expect a filterExpenses function to exist
+    const { filterExpenses } = require('../src/logic');
+    
+    const foodOnly = filterExpenses(list, 'Food');
+    expect(foodOnly.length).toBe(1);
+    expect(foodOnly[0].name).toBe('Burger');
+});

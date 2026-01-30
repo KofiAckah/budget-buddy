@@ -1,24 +1,24 @@
-// src/app.js
-
-// CHANGE 1: Use 'let' so we can update the array when deleting
 let expenses = [];
 
 // DOM Elements
 const addBtn = document.getElementById('add-btn');
 const nameInput = document.getElementById('item-name');
 const amountInput = document.getElementById('item-amount');
+const categoryInput = document.getElementById('item-category'); // NEW
+const filterInput = document.getElementById('filter-category'); // NEW
 const list = document.getElementById('expense-list');
 const totalDisplay = document.getElementById('total-amount');
 
+// Event Listener: Add Expense
 addBtn.addEventListener('click', () => {
     const name = nameInput.value;
     const amount = amountInput.value;
-    
-    // Note: addExpense mutates the array in our current logic
-    const newExpense = addExpense(expenses, name, amount);
+    const category = categoryInput.value; // Get the category
+
+    // Add with category
+    const newExpense = addExpense(expenses, name, amount, category);
 
     if (newExpense) {
-        // If successful, update the UI
         renderUI();
         clearInputs();
     } else {
@@ -26,32 +26,43 @@ addBtn.addEventListener('click', () => {
     }
 });
 
+// Event Listener: Filter Change
+filterInput.addEventListener('change', () => {
+    renderUI(); // Re-draw the list based on the new filter
+});
+
 function renderUI() {
     list.innerHTML = "";
 
-    expenses.forEach(expense => {
+    // 1. Get the current filter value (e.g., "Food" or "All")
+    const currentCategory = filterInput.value;
+
+    // 2. Get the specific list to show using logic.js
+    const visibleExpenses = filterExpenses(expenses, currentCategory);
+
+    // 3. Loop through the VISIBLE expenses only
+    visibleExpenses.forEach(expense => {
         const li = document.createElement('li');
-        
-        // CHANGE 2: Create HTML with a Delete Button
         li.innerHTML = `
-            <span>${expense.name}: $${expense.amount.toFixed(2)}</span>
-            <button class="delete-btn" data-id="${expense.id}" style="background-color: #dc3545; margin-left: 10px;">X</button>
+            <span>
+                <strong>${expense.name}</strong> 
+                <small>(${expense.category})</small>
+            </span>
+            <span>$${expense.amount.toFixed(2)}</span>
+            <button class="delete-btn" data-id="${expense.id}" style="background-color: #dc3545; color: white; border: none; margin-left: 10px; cursor: pointer;">X</button>
         `;
-        
-        // CHANGE 3: Add Click Listener for Deletion
-        // We find the button we just created inside this 'li'
+
         const deleteBtn = li.querySelector('.delete-btn');
         deleteBtn.addEventListener('click', () => {
-            // Call the logic function
             expenses = removeExpense(expenses, expense.id);
-            // Re-draw the UI
             renderUI();
         });
 
         list.appendChild(li);
     });
 
-    const total = calculateTotal(expenses);
+    // 4. Update Total (Based on ALL expenses, or visible? Usually Total is for everything, but let's stick to visible for the filter view)
+    const total = calculateTotal(visibleExpenses);
     totalDisplay.textContent = total.toFixed(2);
 }
 
@@ -60,3 +71,7 @@ function clearInputs() {
     amountInput.value = "";
     nameInput.focus();
 }
+
+// Basic Monitoring: Log when the app starts
+console.log(`[System]: App started at ${new Date().toISOString()}`);
+console.log(`[Monitoring]: Current expense count: ${expenses.length}`);
