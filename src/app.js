@@ -83,27 +83,3 @@ function clearInputs() {
     amountInput.value = "";
     nameInput.focus();
 }
-
-// Add monitoring to user actions
-addBtn.addEventListener('click', () => {
-    const name = nameInput.value;
-    const amount = amountInput.value;
-    const category = categoryInput.value;
-    
-    const newExpense = addExpense(expenses, name, amount, category);
-    
-    if (newExpense) {
-        console.log(`[Monitoring]: Expense added - ${name} ($${amount}) [${category}]`);
-        console.log(`[Monitoring]: Total expenses: ${expenses.length}`);
-        renderUI();
-        clearInputs();
-    }
-});
-
-// Add to delete functionality
-deleteBtn.addEventListener('click', () => {
-    console.log(`[Monitoring]: Expense deleted - ID: ${expense.id}`);
-    expenses = removeExpense(expenses, expense.id);
-    console.log(`[Monitoring]: Remaining expenses: ${expenses.length}`);
-    renderUI();
-});

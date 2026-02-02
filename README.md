@@ -1,28 +1,43 @@
-# BudgetBuddy 💰
+# BudgetBuddy
 
 A simple, lightweight web application designed to help students and young professionals track their daily expenses and stay within their financial goals. Built with vanilla JavaScript and following Agile & DevOps best practices.
 
 [![BudgetBuddy CI](https://github.com/KofiAckah/budget-buddy/actions/workflows/ci.yml/badge.svg)](https://github.com/KofiAckah/budget-buddy/actions)
 
-## 🎯 Product Vision
+## Product Vision
 
 For students and young professionals who struggle to keep track of their daily spending, **BudgetBuddy** is a simple web application that allows users to quickly log expenses and view a running total, helping them stay within their financial goals.
 
-## ✨ Features
+## Features
 
 ### Core Functionality (Sprint 1)
-- ✅ **Log Expenses** - Add expense items with name and amount
-- ✅ **View Expense List** - See all recorded expenses in an organized list
-- ✅ **Calculate Total** - Automatically calculate and display total spending
-- ✅ **Input Validation** - Prevent invalid entries (empty names, negative amounts)
+- **Log Expenses** - Add expense items with name and amount
+- **View Expense List** - See all recorded expenses in an organized list
+- **Calculate Total** - Automatically calculate and display total spending
+- **Input Validation** - Prevent invalid entries (empty names, negative amounts)
 
 ### Enhanced Features (Sprint 2)
-- ✅ **Delete Expenses** - Remove individual items with one click
-- ✅ **Category Filtering** - Organize expenses by categories (Food, Transport, Entertainment, Other)
-- ✅ **Dynamic Filtering** - Filter expenses by category and update totals dynamically
-- ✅ **System Monitoring** - Console logging for debugging and monitoring
+- **Delete Expenses** - Remove individual items with one click
+- **Category Filtering** - Organize expenses by categories (Food, Transport, Entertainment, Other)
+- **Dynamic Filtering** - Filter expenses by category and update totals dynamically
+- **System Monitoring** - Console logging for debugging and monitoring
+- **Modern UI** - Gradient theme with responsive design and smooth animations
 
-## 🚀 Getting Started
+## Screenshots
+
+### Application Interface
+![BudgetBuddy UI](assets/Website3.png)
+*Modern, responsive interface with category filtering and delete functionality*
+
+### Category Filtering
+![Filter by Category](assets/Website2.png)
+*Filter expenses by category - showing only Food items with updated total*
+
+### Runtime Monitoring
+![Console Logs](assets/Monitoring_Logs.png)
+*Comprehensive logging of all user actions for debugging and monitoring*
+
+## Getting Started
 
 ### Prerequisites
 - Node.js (v18 or higher)
@@ -59,7 +74,7 @@ For students and young professionals who struggle to keep track of their daily s
      ```
    - Navigate to `http://localhost:8000`
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 BudgetBuddy/
@@ -67,8 +82,12 @@ BudgetBuddy/
 │   └── workflows/
 │       └── ci.yml              # GitHub Actions CI pipeline
 ├── assets/
-│   ├── Github1.png             # CI pipeline screenshot
-│   └── Website1.png            # Application UI screenshot
+│   ├── Github1.png             # Sprint 1 CI pipeline screenshot
+│   ├── Github2.png             # Sprint 2 CI pipeline screenshot
+│   ├── Website1.png            # Sprint 1 UI screenshot
+│   ├── Website2.png            # Filter feature (Food category)
+│   ├── Website3.png            # Complete UI with all features
+│   └── Monitoring_Logs.png     # Console monitoring logs
 ├── src/
 │   ├── index.html              # Main HTML file
 │   ├── app.js                  # UI logic and DOM manipulation
@@ -82,7 +101,7 @@ BudgetBuddy/
 └── README.md                   # This file
 ```
 
-## 🧪 Testing
+## Testing
 
 The project uses **Jest** for unit testing. Tests cover all core business logic functions.
 
@@ -98,13 +117,15 @@ npm test -- --coverage
 ```
 
 ### Test Coverage
-- ✅ Adding valid expenses
-- ✅ Rejecting invalid input
-- ✅ Calculating totals correctly
-- ✅ Removing expenses by ID
-- ✅ Filtering expenses by category
+- Adding valid expenses
+- Rejecting invalid input
+- Calculating totals correctly
+- Removing expenses by ID
+- Filtering expenses by category
 
-## 🔄 CI/CD Pipeline
+## CI/CD Pipeline
+
+![GitHub Actions CI](assets/Github2.png)
 
 The project uses **GitHub Actions** for continuous integration. The pipeline automatically:
 - Runs on every push to `main` or any `feat/*` branch
@@ -115,7 +136,7 @@ The project uses **GitHub Actions** for continuous integration. The pipeline aut
 
 View the pipeline status in the [Actions tab](https://github.com/KofiAckah/budget-buddy/actions).
 
-## 🌿 Git Workflow
+## Git Workflow
 
 This project follows a **feature branch workflow**:
 
@@ -142,7 +163,7 @@ This project follows a **feature branch workflow**:
 5. Wait for CI to pass (green checkmark)
 6. Merge to `main`
 
-## 📋 User Stories
+## User Stories
 
 ### Completed Stories
 
@@ -163,7 +184,7 @@ This project follows a **feature branch workflow**:
 
 See [SPRINT_0.md](SPRINT_0.md) for detailed acceptance criteria.
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
 - **Testing**: Jest (v30.2.0)
@@ -171,22 +192,22 @@ See [SPRINT_0.md](SPRINT_0.md) for detailed acceptance criteria.
 - **Version Control**: Git & GitHub
 - **Development Tools**: Node.js, npm
 
-## 📊 Sprint Progress
+## Sprint Progress
 
 ### Sprint 1 (Completed)
 **Goal**: Deliver core expense tracking features and establish CI pipeline
-- ✅ Story 1: Log Expense
-- ✅ Story 2: View Expense List
-- ✅ Story 3: View Total Spending
-- ✅ CI/CD Pipeline Setup
+- Story 1: Log Expense
+- Story 2: View Expense List
+- Story 3: View Total Spending
+- CI/CD Pipeline Setup
 
 ### Sprint 2 (Completed)
 **Goal**: Apply feedback, allow deletion/filtering, and add monitoring
-- ✅ Story 4: Delete Expense
-- ✅ Story 5: Filter by Category
-- ✅ System Monitoring
+- Story 4: Delete Expense
+- Story 5: Filter by Category
+- System Monitoring
 
-## 📖 Definition of Done
+## Definition of Done
 
 For any user story to be considered "Done," it must meet:
 
@@ -209,7 +230,7 @@ For any user story to be considered "Done," it must meet:
 
 See [SPRINT_0.md](SPRINT_0.md) for the complete checklist and product backlog.
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feat/amazing-feature`)
@@ -223,5 +244,3 @@ See [SPRINT_0.md](SPRINT_0.md) for the complete checklist and product backlog.
 - `docs:` - Documentation changes
 - `test:` - Test additions or modifications
 - `chore:` - Maintenance tasks
-
-**Happy Budgeting! 💰**

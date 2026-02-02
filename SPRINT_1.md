@@ -11,9 +11,9 @@
 ### 1. Delivered User Stories
 | Story ID | Name | Status |
 | :--- | :--- | :--- |
-| Story 1 | Log Expense | ✅ Done |
-| Story 2 | View Expense List | ✅ Done |
-| Story 3 | View Total Spending | ✅ Done |
+| Story 1 | Log Expense | Done |
+| Story 2 | View Expense List | Done |
+| Story 3 | View Total Spending | Done |
 
 ### 2. Evidence of Work
 ![Application Screenshot](assets/Website1.png)
@@ -32,7 +32,7 @@
 ### What Went Well?
 * **Git Workflow:** The feature branch strategy worked well. I successfully kept `main` clean and only merged working code.
 * **Testing:** Writing the unit tests *before* the UI helped clarify the logic (Test-Driven Development). The Jest setup was smooth.
-* **CI Setup:** The GitHub Actions pipeline caught a few potential issues early and is now running automatically.
+* **CI Setup:** The GitHub Actions pipeline was successfully configured. While it didn't catch errors this sprint (because local tests passed first), it is now active and ready to protect the main branch in Sprint 2.
 
 ### What Could Be Improved? (Action Items for Sprint 2)
 1.  **Commit Granularity:**
@@ -41,4 +41,4 @@
 
 2.  **Test Coverage:**
     * *Issue:* I only wrote tests for the "happy path" (valid inputs).
-    * *Improvement:* In Sprint 2, I will add tests for "edge cases" (e.g., what happens if the list is empty? What if I add a huge number?). This improves the robustness of the app.
+    * *Improvement:* In Sprint 2, I will improve robustness by writing tests that check for failures, such as trying to add an expense with no name or a negative amount (Validation Testing).
